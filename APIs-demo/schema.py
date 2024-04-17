@@ -49,3 +49,13 @@ class Item(BaseModel):
         if price < 1:
             raise ValueError("Price must be at least 1 shilling")
         return price
+    
+class ItemSchema(Item):
+    id: int
+    name: str
+    price: float
+    quantity: int
+    description: Optional[str]
+
+    class Config:
+        from_attributes = True
